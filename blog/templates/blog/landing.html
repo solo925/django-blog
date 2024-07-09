@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to My Blog!</h1>
+    <p class="lead">This is a simple blog application built with Django. Register to create posts and share your thoughts with the world!</p>
+    <hr class="my-4">
+    <p>Click below to explore the blog posts or to sign up and start posting your own content.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'post_list' %}" role="button">View Blog Posts</a>
+    {% if not user.is_authenticated %}
+        <a class="btn btn-success btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a>
+    {% endif %}
+</div>
+{% endblock %}
